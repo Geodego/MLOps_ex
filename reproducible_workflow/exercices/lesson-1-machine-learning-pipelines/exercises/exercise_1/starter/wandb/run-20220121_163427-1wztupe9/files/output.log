@@ -1,0 +1,8 @@
+
+2022-01-21 16:34:35,187 Getting artifact
+Traceback (most recent call last):
+  File "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py", line 35, in <module>
+    go(args)
+  File "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py", line 21, in go
+    artifact = run.use_artifact(args.artifact_name)
+KeyboardInterrupt

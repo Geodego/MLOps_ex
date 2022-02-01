@@ -1,0 +1,27 @@
+
+2022-01-21 16:29:41,841 Getting artifact
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 761, in artifact
+    artifact = Artifact(self.client, entity, project, artifact_name)
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 3443, in __init__
+    self._load()
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 3961, in _load
+    raise ValueError(
+ValueError: Project geodego/exercise_1 does not contain artifact: "zen_of_python:v1"
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    six.reraise(CommError, CommError(message, err), sys.exc_info()[2])
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 761, in artifact
+    artifact = Artifact(self.client, entity, project, artifact_name)
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 3443, in __init__
+    self._load()
+  File "/Users/gdegournay/opt/anaconda3/envs/udacity/lib/python3.8/site-packages/wandb/apis/public.py", line 3961, in _load
+    raise ValueError(
+wandb.errors.CommError: Project geodego/exercise_1 does not contain artifact: "zen_of_python:v1"

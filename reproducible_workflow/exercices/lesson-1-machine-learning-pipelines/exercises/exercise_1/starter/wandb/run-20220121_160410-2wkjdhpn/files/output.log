@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "upload_artifact.py", line 60, in <module>
+    go(args)
+  File "upload_artifact.py", line 25, in go
+    artifact = wandb.Artifact(name=args.artifact_name, type=args.artifact_type, description=args.artifact_desc)
+AttributeError: 'Namespace' object has no attribute 'artifact_desc'

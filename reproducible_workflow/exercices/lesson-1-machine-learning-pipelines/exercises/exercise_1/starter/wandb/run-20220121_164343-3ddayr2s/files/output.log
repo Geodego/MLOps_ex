@@ -1,0 +1,7 @@
+
+2022-01-21 16:43:50,480 Getting artifact
+Traceback (most recent call last):
+  File "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py", line 35, in <module>
+    args = Args('exercise_1/zen_of_python:v1')
+  File "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py", line 21, in go
+    artifact = run.use_artifact('geodego/exercice_1/zen_of_python:v1', type='text_file')

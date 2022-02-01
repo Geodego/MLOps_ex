@@ -1,0 +1,25 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-01-31T16:56:16.482134",
+    "startedAt": "2022-01-31T16:56:15.501932",
+    "docker": null,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "--input_artifact",
+        "exercise_4/genres_mod.parquet:latest",
+        "--artifact_name",
+        "preprocessed_data.csv",
+        "--artifact_type",
+        "raw_data",
+        "--artifact_description",
+        "pre-processed data"
+    ],
+    "state": "running",
+    "program": "run.py",
+    "codePath": "run.py",
+    "host": "Geoffroys-MacBook-Pro.local",
+    "username": "gdegournay",
+    "executable": "/Users/gdegournay/opt/anaconda3/envs/mlflow-cfa08ae32a7edb825a91edaf9656a4c970d41a75/bin/python"
+}

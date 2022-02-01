@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/mlruns/0/17fc40d52dcc4a75a3da20cb1b6bedb5/artifacts
+end_time: 1643203308922
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 17fc40d52dcc4a75a3da20cb1b6bedb5
+run_uuid: 17fc40d52dcc4a75a3da20cb1b6bedb5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1643203307123
+status: 4
+tags: []
+user_id: gdegournay

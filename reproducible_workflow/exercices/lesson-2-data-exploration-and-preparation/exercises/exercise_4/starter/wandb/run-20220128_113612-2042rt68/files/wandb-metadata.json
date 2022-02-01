@@ -1,0 +1,19 @@
+{
+    "os": "macOS-12.1-x86_64-i386-64bit",
+    "python": "3.9.9",
+    "heartbeatAt": "2022-01-28T10:36:14.240722",
+    "startedAt": "2022-01-28T10:36:12.960972",
+    "docker": null,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/Users/gdegournay/Library/Jupyter/runtime/kernel-05f8b920-7ebc-4f54-b4b5-b992c2621b0c.json"
+    ],
+    "state": "running",
+    "program": "EDA.ipynb",
+    "root": "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter",
+    "host": "Geoffroys-MacBook-Pro.local",
+    "username": "gdegournay",
+    "executable": "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/bin/python"
+}

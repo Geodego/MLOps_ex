@@ -1,0 +1,5 @@
+2022-01-31 18:00:52,644 read the file frow wandb
+2022-01-31 18:00:54,328 pre-process the file
+2022-01-31 18:00:54,374 save the file as csv
+2022-01-31 18:00:54,825 Logging artifact
+2022-01-31 18:00:55,100 remove the file created locally

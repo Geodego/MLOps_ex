@@ -1,0 +1,74 @@
+2022-01-28 11:07:55,561 INFO    MainThread:19433 [internal.py:wandb_internal():88] W&B internal server running at pid: 19433, started at: 2022-01-28 11:07:55.561365
+2022-01-28 11:07:55,562 DEBUG   HandlerThread:19433 [handler.py:handle_request():101] handle_request: check_version
+2022-01-28 11:07:55,562 INFO    WriterThread:19433 [datastore.py:open_for_write():77] open: /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_110755-2pm8lugb/run-2pm8lugb.wandb
+2022-01-28 11:07:55,563 DEBUG   SenderThread:19433 [sender.py:send():122] send: header
+2022-01-28 11:07:55,563 DEBUG   SenderThread:19433 [sender.py:send():122] send: request
+2022-01-28 11:07:55,563 DEBUG   SenderThread:19433 [sender.py:send_request():131] send_request: check_version
+2022-01-28 11:07:55,567 DEBUG   SenderThread:19433 [sender.py:send():122] send: run
+2022-01-28 11:07:55,569 DEBUG   SenderThread:19433 [git.py:repo():33] git repository is invalid
+2022-01-28 11:07:58,655 ERROR   SenderThread:19433 [retry.py:__call__():111] Retry attempt failed:
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x10b5fb3d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10b5fb3d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/old/retry.py", line 96, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 123, in execute
+    return self.client.execute(*args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/gql/transport/requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10b5fb3d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2022-01-28 11:08:25,573 DEBUG   HandlerThread:19433 [handler.py:handle_request():101] handle_request: shutdown
+2022-01-28 11:08:25,573 INFO    HandlerThread:19433 [handler.py:finish():535] shutting down handler
+2022-01-28 11:08:25,643 INFO    WriterThread:19433 [datastore.py:close():258] close: /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_110755-2pm8lugb/run-2pm8lugb.wandb
+2022-01-28 11:09:10,416 INFO    SenderThread:19433 [sender.py:_start_run_threads():596] run started: 2pm8lugb with start time 1643364475
+2022-01-28 11:09:10,416 INFO    SenderThread:19433 [sender.py:finish():833] shutting down sender
+2022-01-28 11:09:13,200 INFO    MainThread:19433 [internal.py:handle_exit():78] Internal process exited

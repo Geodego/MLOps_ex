@@ -1,0 +1,37 @@
+./artifacts/genres_mod.parquet:v0/genres_mod.parquet
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 1:23:10.835722, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:17:48.323970, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:00:17.092287, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 1:03:02.520271, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 3:08:52.417053, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:00:08.620546, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:00:17.014976, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:00:08.124289, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:00:08.981908, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 3:51:11.701058, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 1:23:22.252515, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:35:30.214901, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:18:22.957997, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:02:30.737312, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:15:41.009906, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:15:05.924401, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:05:05.040788, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop. See wandb/debug-internal.log for full traceback.
+wandb: Network error resolved after 0:27:47.852501, resuming normal operation.

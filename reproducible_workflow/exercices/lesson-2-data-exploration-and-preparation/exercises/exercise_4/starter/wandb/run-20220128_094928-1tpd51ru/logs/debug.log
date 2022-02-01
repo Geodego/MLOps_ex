@@ -1,0 +1,65 @@
+2022-01-28 09:49:28,381 INFO    MainThread:16305 [wandb_setup.py:_flush():69] setting env: {}
+2022-01-28 09:49:28,381 INFO    MainThread:16305 [wandb_setup.py:_flush():69] setting login settings: {}
+2022-01-28 09:49:28,381 INFO    MainThread:16305 [wandb_init.py:_log_setup():334] Logging user logs to /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_094928-1tpd51ru/logs/debug.log
+2022-01-28 09:49:28,382 INFO    MainThread:16305 [wandb_init.py:_log_setup():335] Logging internal logs to /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_094928-1tpd51ru/logs/debug-internal.log
+2022-01-28 09:49:28,382 INFO    MainThread:16305 [wandb_init.py:init():367] calling init triggers
+2022-01-28 09:49:28,382 INFO    MainThread:16305 [wandb_init.py:init():372] wandb.init called with sweep_config: {}
+config: {}
+2022-01-28 09:49:28,382 INFO    MainThread:16305 [wandb_init.py:init():387] re-initializing run, found existing run on stack: 2g82ua1q
+2022-01-28 09:49:28,384 INFO    MainThread:16305 [wandb_run.py:finish():1135] finishing run geodego/exercise_4/2g82ua1q
+2022-01-28 09:49:28,389 INFO    MainThread:16305 [jupyter.py:save_history():349] saving 3 cells to _session_history.ipynb
+2022-01-28 09:49:28,392 INFO    MainThread:16305 [wandb_run.py:_config_callback():733] config_cb None None {'_wandb': {'session_history': 'code/_session_history.ipynb'}}
+2022-01-28 09:49:28,400 INFO    MainThread:16305 [jupyter.py:save_ipynb():268] looking for notebook: EDA.ipynb
+2022-01-28 09:49:28,675 INFO    MainThread:16305 [wandb_init.py:_jupyter_teardown():265] saved code and history
+2022-01-28 09:49:28,675 INFO    MainThread:16305 [wandb_init.py:_jupyter_teardown():266] cleaning up jupyter logic
+2022-01-28 09:49:28,675 INFO    MainThread:16305 [wandb_run.py:_atexit_cleanup():1446] got exitcode: 0
+2022-01-28 09:49:28,676 INFO    MainThread:16305 [wandb_run.py:_restore():1418] restore
+2022-01-28 09:49:32,755 INFO    MainThread:16305 [wandb_run.py:_wait_for_finish():1568] got exit ret: file_counts {
+  wandb_count: 1
+  artifact_count: 3
+}
+pusher_stats {
+  uploaded_bytes: 24806
+  total_bytes: 24806
+}
+
+2022-01-28 09:49:34,763 INFO    MainThread:16305 [wandb_run.py:_wait_for_finish():1568] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 4
+  artifact_count: 3
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 29884
+  total_bytes: 29884
+}
+
+2022-01-28 09:49:35,845 INFO    MainThread:16305 [wandb_run.py:_show_files():1790] logging synced files
+2022-01-28 09:49:35,851 INFO    MainThread:16305 [wandb_init.py:init():416] starting backend
+2022-01-28 09:49:35,851 INFO    MainThread:16305 [backend.py:_multiprocessing_setup():69] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2022-01-28 09:49:35,854 INFO    MainThread:16305 [backend.py:ensure_launched():123] starting backend process...
+2022-01-28 09:49:35,859 INFO    MainThread:16305 [backend.py:ensure_launched():127] started backend process with pid: 19019
+2022-01-28 09:49:35,861 INFO    MainThread:16305 [wandb_init.py:init():421] backend started and connected
+2022-01-28 09:49:35,877 INFO    MainThread:16305 [wandb_init.py:init():461] updated telemetry
+2022-01-28 09:49:35,878 INFO    MainThread:16305 [wandb_init.py:init():480] communicating current version
+2022-01-28 09:49:36,543 INFO    MainThread:16305 [wandb_init.py:init():485] got version response upgrade_message: "wandb version 0.12.9 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-01-28 09:49:36,544 INFO    MainThread:16305 [wandb_init.py:init():493] communicating run to backend with 30 second timeout
+2022-01-28 09:49:36,850 INFO    MainThread:16305 [wandb_init.py:init():518] starting run threads in backend
+2022-01-28 09:49:36,869 INFO    MainThread:16305 [wandb_run.py:_console_start():1476] atexit reg
+2022-01-28 09:49:36,869 INFO    MainThread:16305 [wandb_run.py:_redirect():1339] redirect: SettingsConsole.WRAP
+2022-01-28 09:49:36,870 INFO    MainThread:16305 [wandb_run.py:_redirect():1374] Wrapping output streams.
+2022-01-28 09:49:36,870 INFO    MainThread:16305 [wandb_run.py:_redirect():1390] Redirects installed.
+2022-01-28 09:49:36,870 INFO    MainThread:16305 [wandb_init.py:init():542] run started, returning control to user process
+2022-01-28 09:54:53,842 INFO    MainThread:16305 [wandb_setup.py:_flush():69] setting env: {}
+2022-01-28 09:54:53,842 INFO    MainThread:16305 [wandb_setup.py:_flush():69] setting login settings: {}
+2022-01-28 09:54:53,842 INFO    MainThread:16305 [wandb_init.py:_log_setup():334] Logging user logs to /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_095453-3vqud5z2/logs/debug.log
+2022-01-28 09:54:53,842 INFO    MainThread:16305 [wandb_init.py:_log_setup():335] Logging internal logs to /Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/wandb/run-20220128_095453-3vqud5z2/logs/debug-internal.log
+2022-01-28 09:54:53,843 INFO    MainThread:16305 [wandb_init.py:_jupyter_setup():285] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x19fb7f520>
+2022-01-28 09:54:53,843 INFO    MainThread:16305 [wandb_init.py:init():367] calling init triggers
+2022-01-28 09:54:53,843 INFO    MainThread:16305 [wandb_init.py:init():372] wandb.init called with sweep_config: {}
+config: {}
+2022-01-28 09:54:53,843 INFO    MainThread:16305 [wandb_init.py:init():387] re-initializing run, found existing run on stack: 1tpd51ru
+2022-01-28 09:54:53,844 INFO    MainThread:16305 [wandb_run.py:finish():1135] finishing run geodego/exercise_4/1tpd51ru

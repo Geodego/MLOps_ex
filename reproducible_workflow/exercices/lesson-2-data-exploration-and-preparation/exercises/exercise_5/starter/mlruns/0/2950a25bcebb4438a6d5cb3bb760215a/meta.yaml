@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-2-data-exploration-and-preparation/exercises/exercise_5/starter/mlruns/0/2950a25bcebb4438a6d5cb3bb760215a/artifacts
+end_time: 1643648011815
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 2950a25bcebb4438a6d5cb3bb760215a
+run_uuid: 2950a25bcebb4438a6d5cb3bb760215a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1643647890113
+status: 4
+tags: []
+user_id: gdegournay

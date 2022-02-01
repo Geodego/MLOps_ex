@@ -1,0 +1,17 @@
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/sdk/internal/file_stream.py", line 228, in _thread_body
+    self._send(ready_chunks)
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/sdk/internal/file_stream.py", line 271, in _send
+    self._handle_response(
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/sdk/internal/file_stream.py", line 250, in _handle_response
+    raise response
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/wandb/util.py", line 707, in request_with_retry
+    response.raise_for_status()
+  File "/Users/gdegournay/opt/anaconda3/envs/mlflow-51a201f2a8eac0601d78afdf58767b0a4aa0f41a/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.wandb.ai/files/geodego/exercise_4/1tpd51ru/file_stream

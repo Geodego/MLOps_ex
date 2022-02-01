@@ -1,0 +1,25 @@
+{
+    "os": "macOS-12.1-x86_64-i386-64bit",
+    "python": "3.10.1",
+    "heartbeatAt": "2022-01-25T09:14:39.921962",
+    "startedAt": "2022-01-25T09:14:38.987446",
+    "docker": null,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "--file_url",
+        "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4dfdfb4e1bb3719628753a4ece995a1b2fa5312a/sklearn/datasets/data/iris.csv",
+        "--artifact_name",
+        "iris",
+        "--artifact_type",
+        "raw_data",
+        "--artifact_description",
+        "This data sets consists of 3 different types of irises\u2019 (Setosa, Versicolour, and Virginica) petal and sepal length"
+    ],
+    "state": "running",
+    "program": "/Users/gdegournay/PycharmProjects/Udacity/MLOps/MLOps_ex/reproducible_workflow/exercices/lesson-1-machine-learning-pipelines/exercises/exercise_2/starter/download_data.py",
+    "codePath": "download_data.py",
+    "host": "macbook-air-de-geoffroy.home",
+    "username": "gdegournay",
+    "executable": "/Users/gdegournay/opt/anaconda3/envs/mlflow-40718d0d61bfd89e468345d7313174246a223376/bin/python"
+}
