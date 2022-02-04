@@ -1,3 +1,4 @@
+[![Python 3.6](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 # MLOps exercises
 
 - Exercises of ML DevOps Engineer Nanodegree Udacity
@@ -37,6 +38,7 @@ wandb login
 ```
 then follow instructions on the terminal. You will also want to install the related 
 CLI tool with Python.
+
 
 ## Exercises
 Here are some details including command line instructions used for the different exercises
