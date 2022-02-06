@@ -27,6 +27,9 @@ packages requirements:
   - pyyaml~=6.0 
   - numpy~=1.22.0 
   - pillow~=8.4.0
+  - pytest~=6.2.5 
+  - scipy~=1.7.3 
+  - scikit-learn~=1.0.2
 
 The packages can be installed using pip or conda
 ```bash
@@ -97,4 +100,23 @@ mlflow run . -P input_artifact="exercise_5/preprocessed_data.csv:latest" \
              -P artifact_root="data" \
              -P test_size=0.3 \
              -P stratify="genre"
+```
+#### Exercise 7: Deterministic Tests
+In this exercise you will apply deterministic tests to the cleaned dataset from exercise 5.
+Since we do not have a new training dataset, we will compare the test dataset against the train dataset. 
+This is a useful trick when obtaining a new training dataset right away is not possible. 
+The thresholds can be adjusted using K-fold cross validation.
+We use the Kolmogorov-Smirnov test in this exercise.
+
+To run the code there is no parameter to specify:
+```bash
+mlflow run . 
+```
+
+#### Exercise 8: Non-deterministic Tests
+In this exercise you will apply non-deterministic tests to the cleaned dataset from exercise 5. We use the artifacts 
+created in exercise_6 to get the train dataset and the test dataset.
+To run the code there is no parameter to specify:
+```bash
+mlflow run . 
 ```
