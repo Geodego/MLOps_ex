@@ -120,3 +120,15 @@ To run the code there is no parameter to specify:
 ```bash
 mlflow run . 
 ```
+
+#### Exercise 9: Parameters in pytest
+n this exercise we will modify the non-deterministic test we prepared in the previous exercise, by allowing it to 
+accept the reference dataset, the new dataset as well as the threshold for the statistical test from the command line. 
+This is fundamental for configurability and reusability.
+To run the code there are 3 parameters to specify:
+```bash
+mlflow run . \
+-P reference_artifact="exercise_6/data_train.csv:latest" \
+-P sample_artifact="exercise_6/data_test.csv:latest" \
+-P ks_alpha=0.05
+```
