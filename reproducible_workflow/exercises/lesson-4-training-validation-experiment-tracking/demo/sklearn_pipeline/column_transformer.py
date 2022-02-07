@@ -19,16 +19,18 @@ y = df.pop("click")
 X = df
 
 # Build a Column transformer
-categorical_preproc = OneHotEncoder()
-text_preproc = TfidfVectorizer()
-numerical_preprocessing = make_pipeline(SimpleImputer(), StandardScaler())
+categorical_preproc = OneHotEncoder()  # categorical columns pipeline
+text_preproc = TfidfVectorizer()  # NLP tool tranforming text in a usable vector (using TF-IDF)
+# SimpleImputer handle missing values,
+numerical_preprocessing = make_pipeline(SimpleImputer(), StandardScaler())  # numerical columns pipeline
 preproc = ColumnTransformer(
     transformers=[
-        ("cat_transform", categorical_preproc, ['city']),
-        ("text_transform", text_preproc, 'title'),
+        ("cat_transform", categorical_preproc, ['city']), # can use list here as OneHotEncoder handles 2 dim inputs
+        ("text_transform", text_preproc, 'title'),  # not a list because TfidfVectorizer accepts only 1 dim inputs
         ("num_transform", numerical_preprocessing, ['expert_rating', 'user_rating'])
     ],
-    remainder='drop'
+    remainder='drop'  # means that all the other columns are dropped
 )
+# Inference pipeline
 pipe = make_pipeline(preproc, LogisticRegression())
 pipe.fit(X, y)

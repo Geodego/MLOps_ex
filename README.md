@@ -30,6 +30,8 @@ packages requirements:
   - pytest~=6.2.5 
   - scipy~=1.7.3 
   - scikit-learn~=1.0.2
+  - torch~=1.4.0
+  - torchvision~=0.5.0
 
 The packages can be installed using pip or conda
 ```bash
@@ -46,6 +48,8 @@ CLI tool with Python.
 ## Exercises
 Here are some details including command line instructions used for the different exercises
 ### Reproducible Workflow
+
+#### lesson 1: Machine Learning Pipelines
 
 #### Exercise 1: Versioning Data & Artifacts
 Run 
@@ -77,6 +81,7 @@ Re-run the pipeline changing the name of the experiment from the command line:
 ```bash
 mlflow run . -P hydra_options="main.experiment_name=prod"
 ```
+#### lesson 2: Data Exploration and Preparation
 
 #### Exercise 4: Exploratory Data Analysis
 In this exercise you will perform a simple Exploratory Data Analysis in Jupyter keeping track of 
@@ -101,6 +106,9 @@ mlflow run . -P input_artifact="exercise_5/preprocessed_data.csv:latest" \
              -P test_size=0.3 \
              -P stratify="genre"
 ```
+
+#### lesson 3: Data Validation
+
 #### Exercise 7: Deterministic Tests
 In this exercise you will apply deterministic tests to the cleaned dataset from exercise 5.
 Since we do not have a new training dataset, we will compare the test dataset against the train dataset. 
@@ -132,3 +140,11 @@ mlflow run . \
 -P sample_artifact="exercise_6/data_test.csv:latest" \
 -P ks_alpha=0.05
 ```
+
+#### lesson 4: Training, Validation and Experiment Tracking
+
+#### demo/sklearn_pipeline:
+We use the ColumnTransformer to apply different preprocessing steps to numerical, textual and categorical columns
+
+#### demo/pytorch
+Example of how we define an inference pipeline using pytorch for a image classification task.

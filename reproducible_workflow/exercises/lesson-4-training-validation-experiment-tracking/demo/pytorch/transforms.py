@@ -1,4 +1,5 @@
 import torch
+import torchvision.models
 from torchvision import transforms
 from torch.nn import Sequential, Softmax
 from PIL import Image
