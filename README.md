@@ -148,3 +148,9 @@ We use the ColumnTransformer to apply different preprocessing steps to numerical
 
 #### demo/pytorch
 Example of how we define an inference pipeline using pytorch for a image classification task.
+
+#### Exercise 10: Write a Training/Inference Sub-Pipeline
+To run the code there is no parameter to specify, the configuration is done using Hydra:
+```bash
+mlflow run . 
+```
