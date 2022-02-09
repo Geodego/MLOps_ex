@@ -21,7 +21,6 @@ logger = logging.getLogger()
 
 
 def go(args):
-
     run = wandb.init(project="exercise_10", job_type="train")
 
     logger.info("Downloading and reading train artifact")
@@ -40,28 +39,32 @@ def go(args):
 
     logger.info("Setting up pipeline")
 
+    # set up the pipeline
     pipe = get_inference_pipeline(args)
 
     logger.info("Fitting")
-    pipe.fit(X_train, y_train)
+    pipe.fit(X_train, y_train)  # fit the pipeline
 
     logger.info("Scoring")
     score = roc_auc_score(
         y_val, pipe.predict_proba(X_val), average="macro", multi_class="ovo"
     )
 
+    # store the AUC in the run as a summary metric
     run.summary["AUC"] = score
 
     # We collect the feature importance for all non-nlp features first
+    # pipe["preprocessor"] is a ColumnTransformer which transformers are for numerical, categorical and nlp features
     feat_names = np.array(
-        pipe["preprocessor"].transformers[0][-1]
+        pipe["preprocessor"].transformers[0][-1] # each transformer is a tuple (name, pipeline, list of columns)
         + pipe["preprocessor"].transformers[1][-1]
     )
+    # feat_names is the lst of columns which are non nlp features
     feat_imp = pipe["classifier"].feature_importances_[: len(feat_names)]
 
     # For the NLP feature we sum across all the TF-IDF dimensions into a global
     # NLP importance
-    nlp_importance = sum(pipe["classifier"].feature_importances_[len(feat_names) :])
+    nlp_importance = sum(pipe["classifier"].feature_importances_[len(feat_names):])
 
     feat_imp = np.append(feat_imp, nlp_importance)
     feat_names = np.append(feat_names, "title + song_name")
@@ -172,7 +175,7 @@ def get_inference_pipeline(args):
     # Now we have a full prediction pipeline.
     pipe = Pipeline(
         steps=[
-            ("preprocessor", preprocessor),
+            ("preprocessor", preprocessor),  # "preprocessor is a pipeline on its own
             ("classifier", RandomForestClassifier(**model_config))])
     return pipe
 
@@ -182,7 +185,6 @@ if __name__ == "__main__":
         description="Train a Random Forest",
         fromfile_prefix_chars="@",
     )
-
     parser.add_argument(
         "--train_data",
         type=str,
@@ -196,7 +198,6 @@ if __name__ == "__main__":
         help="Path to a JSON file containing the configuration for the random forest",
         required=True,
     )
-
     args = parser.parse_args()
 
     go(args)

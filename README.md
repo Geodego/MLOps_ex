@@ -150,6 +150,7 @@ We use the ColumnTransformer to apply different preprocessing steps to numerical
 Example of how we define an inference pipeline using pytorch for a image classification task.
 
 #### Exercise 10: Write a Training/Inference Sub-Pipeline
+This exercise use the artifact "exercise_6/data_train.csv:latest". 
 To run the code there is no parameter to specify, the configuration is done using Hydra:
 ```bash
 mlflow run . 
