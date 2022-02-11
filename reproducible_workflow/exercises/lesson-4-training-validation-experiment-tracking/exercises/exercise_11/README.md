@@ -18,6 +18,9 @@ mlflow run . -P hydra_options="random_forest_pipeline.random_forest.max_depth=5"
 ## Experiment 2
 Now run another experiment overriding ``n_estimators`` in the ``random_forest`` section and setting 
 it to 10.
+```bash
+mlflow run . -P hydra_options="random_forest_pipeline.random_forest.n_estimators=10"
+```
 
 ## Experiment 3: sweep on ``max_depth``
 Let's now exploit the sweep capability of Hydra to try several options for the ``max_depth``
@@ -28,12 +31,20 @@ Let's start with a simple list and try the values 1, 5 and 10
 > **NOTE**: remember to add the ``-m`` option at the beginning, otherwise the sweep will not
 > work.
 
+```bash
+mlflow run . -P hydra_options="-m random_forest_pipeline.random_forest.max_depth=1,5,10"
+```
+
 Now let's do something more advanced, and use the ``range`` operator of Hydra. Remember that
 ``range(1,10,2)`` means all the integers between 1 and 50 in increments of 2. Use the
 ``range`` operator to try ``max_depth`` from 1 to 10 in increments of 2 (5 jobs).
 
 > **NOTE**: do not put any space within the range specification. So ``range(1,10,2)`` works, but
 > ``range(1, 10, 2)`` does not!
+
+```bash
+mlflow run . -P hydra_options="-m random_forest_pipeline.random_forest.max_depth=range(1,10,2)"
+```
 
 ## Experiment 4: sweep on multiple parameters
 Now let's do a proper sweep and optimize multiple parameters. We can use a range operator on 
@@ -42,6 +53,9 @@ Now let's do a proper sweep and optimize multiple parameters. We can use a range
 
 Since this corresponds to several jobs, let's use the parallel feature so the jobs will run
 in parallel on your machine. Just add ``hydra/launcher=joblib`` to the ``hydra_options``.
+```bash
+mlflow run . -P hydra_options="-m random_forest_pipeline.random_forest.max_depth=range(10,50,3) random_forest_pipeline.tfidf.max_features=range(50,200,50) hydra/launcher=joblib"
+```
 
 > **NOTE**: in order to use the joblib launcher you have to install hydra-joblib-launcher. Indeed, it is
 > in our conda.yml file (among the pip dependencies)

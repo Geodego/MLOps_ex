@@ -17,7 +17,8 @@ def go(config: DictConfig):
     # You can get the path at the root of the MLflow project with this:
     root_path = hydra.utils.get_original_cwd()
 
-    # Serialize decision tree configuration
+    # Serialize decision tree configuration. OmegaConf.to_yaml turns a dictionary to a string with yaml
+    # spaces.
     model_config = os.path.abspath("random_forest_config.yml")
 
     with open(model_config, "w+") as fp:

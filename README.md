@@ -149,9 +149,22 @@ We use the ColumnTransformer to apply different preprocessing steps to numerical
 #### demo/pytorch
 Example of how we define an inference pipeline using pytorch for a image classification task.
 
+#### demo/wandb_tracking
+jupyter notebook illustrating tracking with W&B.
+
 #### Exercise 10: Write a Training/Inference Sub-Pipeline
 This exercise use the artifact "exercise_6/data_train.csv:latest". 
 To run the code there is no parameter to specify, the configuration is done using Hydra:
 ```bash
 mlflow run . 
 ```
+#### Exercise 11: Validation and choice of the best performing model
+In this exercise we will perform experiments using a slightly improved version of the pipeline we developed in 
+exercise 10, using the Hydra configuration management system.
+Experiment 1: override max_depth parameter
+```bash
+mlflow run . -P hydra_options="random_forest_pipeline.random_forest.max_depth=5"
+```
+#### Exercise 12: Validation and choice of the best performing model
+In this exercise you will export a model using the parameters we have found in the previous exercise during 
+the experimentation phase.

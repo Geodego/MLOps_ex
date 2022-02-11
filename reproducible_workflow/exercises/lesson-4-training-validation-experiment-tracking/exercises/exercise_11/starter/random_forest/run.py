@@ -41,8 +41,13 @@ def go(args):
     )
 
     logger.info("Setting up pipeline")
-
-    pipe = get_training_inference_pipeline(args)
+    # Get the configuration for the pipeline
+    with open(args.model_config) as fp:
+        model_config = yaml.safe_load(fp)
+    # Add it to the W&B configuration so the values for the hyperparams
+    # are tracked
+    wandb.config.update(model_config)
+    pipe = get_training_inference_pipeline(args, model_config)
 
     logger.info("Fitting")
     pipe.fit(X_train, y_train)
@@ -96,14 +101,8 @@ def go(args):
     )
 
 
-def get_training_inference_pipeline(args):
+def get_training_inference_pipeline(args, model_config):
 
-    # Get the configuration for the pipeline
-    with open(args.model_config) as fp:
-        model_config = yaml.safe_load(fp)
-    # Add it to the W&B configuration so the values for the hyperparams
-    # are tracked
-    wandb.config.update(model_config)
 
     # We need 3 separate preprocessing "tracks":
     # - one for categorical features
