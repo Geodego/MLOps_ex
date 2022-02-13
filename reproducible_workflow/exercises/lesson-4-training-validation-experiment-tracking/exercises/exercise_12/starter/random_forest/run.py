@@ -25,7 +25,6 @@ logger = logging.getLogger()
 
 
 def go(args):
-
     run = wandb.init(job_type="train")
 
     logger.info("Downloading and reading train artifact")
@@ -60,7 +59,6 @@ def go(args):
 
     # Export if required
     if args.export_artifact != "null":
-
         export_model(run, pipe, X_val, pred, args.export_artifact)
 
     # Some useful plots
@@ -87,24 +85,32 @@ def go(args):
 
 
 def export_model(run, pipe, X_val, val_pred, export_artifact):
-
     # Infer the signature of the model
     signature = infer_signature(X_val, val_pred)
 
     with tempfile.TemporaryDirectory() as temp_dir:
-
         export_path = os.path.join(temp_dir, "model_export")
 
-        #### YOUR CODE HERE
         # Save the pipeline in the export_path directory using mlflow.sklearn.save_model
-        # function. Provide the signature computed above ("signature") as well as a few
-        # examples (input_example=X_val.iloc[:2]), and use the CLOUDPICKLE serialization
-        # format (mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
+        # function
+        mlflow.sklearn.save_model(
+            pipe,  # our pipeline
+            export_path,  # path to a directory for the produced package
+            signature=signature,  # input and output schema
+            input_example=X_val.iloc[:2],
+            serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE
+        )
 
-        # Then upload the temp_dir directory as an artifact:
-        # 1. create a wandb.Artifact instance called "artifact"
-        # 2. add the temp directory using .add_dir
-        # 3. log the artifact to the run
+        # upload the temp_dir directory as an artifact:
+        artifact = wandb.Artifact(
+            name=export_artifact,  # name given to the artifact in the command line argument
+            type='model_export',
+            description='Random Forest pipeline export'
+        )
+        artifact.add_dir(local_path=export_path)
+
+        #  log the artifact to the run
+        run.log_artifact(artifact)
 
         # Make sure the artifact is uploaded before the temp dir
         # gets deleted
@@ -112,7 +118,6 @@ def export_model(run, pipe, X_val, val_pred, export_artifact):
 
 
 def plot_feature_importance(pipe):
-
     # We collect the feature importance for all non-nlp features first
     feat_names = np.array(
         pipe["preprocessor"].transformers[0][-1]
@@ -121,7 +126,7 @@ def plot_feature_importance(pipe):
     feat_imp = pipe["classifier"].feature_importances_[: len(feat_names)]
     # For the NLP feature we sum across all the TF-IDF dimensions into a global
     # NLP importance
-    nlp_importance = sum(pipe["classifier"].feature_importances_[len(feat_names) :])
+    nlp_importance = sum(pipe["classifier"].feature_importances_[len(feat_names):])
     feat_imp = np.append(feat_imp, nlp_importance)
     feat_names = np.append(feat_names, "title + song_name")
     fig_feat_imp, sub_feat_imp = plt.subplots(figsize=(10, 10))
@@ -134,7 +139,6 @@ def plot_feature_importance(pipe):
 
 
 def get_training_inference_pipeline(args):
-
     # Get the configuration for the pipeline
     with open(args.model_config) as fp:
         model_config = yaml.safe_load(fp)

@@ -32,3 +32,6 @@
 /lesson-4-training-validation-experiment-tracking/demo/hydra_sweeps/component/
 /lesson-4-training-validation-experiment-tracking/exercises/exercise_11/starter/wandb/
 /lesson-4-training-validation-experiment-tracking/exercises/exercise_11/starter/artifacts/
+/lesson-4-training-validation-experiment-tracking/exercises/exercise_12/starter/mlruns/
+/lesson-4-training-validation-experiment-tracking/exercises/exercise_12/starter/outputs/
+/lesson-4-training-validation-experiment-tracking/exercises/exercise_12/starter/random_forest/artifacts/
