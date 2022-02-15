@@ -26,6 +26,9 @@ def go(args):
     df['song_name'].fillna(value='', inplace=True)
     df['text_feature'] = df['title'] + ' ' + df['song_name']
 
+    # inspection shows that there are nan in column 'loundness'
+    df['loudness'].fillna(df['loudness'].mean(), inplace=True)
+
     # save the file and upload it to an artifact
     logger.info('save the file as csv')
     file_name = args.artifact_name
