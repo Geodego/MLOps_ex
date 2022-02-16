@@ -38,3 +38,9 @@
 /lesson-2-data-exploration-and-preparation/exercises/exercise_5/starter/artifacts/
 /lesson-2-data-exploration-and-preparation/exercises/exercise_5/starter/mlruns/
 /lesson-2-data-exploration-and-preparation/exercises/exercise_5/starter/wandb/
+/lesson-4-training-validation-experiment-tracking/exercises/exercise_13/starter/artifacts/
+/lesson-4-training-validation-experiment-tracking/exercises/exercise_13/starter/wandb/
+/reproducible_workflow/wandb/
+/reproducible_workflow/.ipynb_checkpoints/
+/reproducible_workflow/exercises/lesson-4-training-validation-experiment-tracking/exercises/exercise_12/starter/random_forest/wandb/
+/reproducible_workflow/exercises/lesson-4-training-validation-experiment-tracking/exercises/exercise_13/starter/mlruns/
