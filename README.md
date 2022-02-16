@@ -190,5 +190,10 @@ mlflow run .
 ```
 
 #### Exercise 13: Test the final model
-n this exercise you will build a component that fetches a model and test it on the test dataset.
+In this exercise you will build a component that fetches a model and test it on the test dataset.
 Then, you will mark that model as "production ready".
+````bash
+mlflow run . \
+-P model_export="exercise_12/model_export:latest" \
+-P test_data="exercise_6/data_test.csv:latest"
+````
