@@ -99,6 +99,15 @@ wandb artifact put \
 #### Exercise 5: Clean and Pre-process the Data
 In this exercise you will create a MLflow component that preprocess the data. It implements in a 
 reusable way the steps needed for that task.
+Inspection shows that there are nan in column 'loundness' even if not specified in instructions
+we replace nans wth the average loudness in the dataset.
+To execute the code and save the pre-processed data we run:
+```bash
+mlflow run . -P input_artifact="exercise_4/genres_mod.parquet:latest" \
+             -P artifact_name="preprocessed_data.csv" \
+             -P artifact_type="clean_data" \
+             -P artifact_description="Data after preprocessing"
+```
 #### Exercise 6: Data Segregation
 ```bash
 mlflow run . -P input_artifact="exercise_5/preprocessed_data.csv:latest" \
@@ -165,6 +174,21 @@ Experiment 1: override max_depth parameter
 ```bash
 mlflow run . -P hydra_options="random_forest_pipeline.random_forest.max_depth=5"
 ```
+Experiment 4: sweep on multiple parameters
+```bash
+mlflow run . -P hydra_options="-m random_forest_pipeline.random_forest.max_depth=range(10,50,3) random_forest_pipeline.tfidf.max_features=range(50,200,50) hydra/launcher=joblib"
+```
+Note: We had to do some modifications to the code to get things to work with hydra/launcher:
+It seems that mlflow.run can fail randomly when used with hydra-launcher. When run again with exactly the same 
+parameters it ends up working after a few trials, so we added a while loop to catch mlflow exceptions and run things 
+again until they work.
 #### Exercise 12: Validation and choice of the best performing model
 In this exercise you will export a model using the parameters we have found in the previous exercise during 
 the experimentation phase.
+```bash
+mlflow run . 
+```
+
+#### Exercise 13: Test the final model
+n this exercise you will build a component that fetches a model and test it on the test dataset.
+Then, you will mark that model as "production ready".

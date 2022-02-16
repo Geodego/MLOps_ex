@@ -100,3 +100,7 @@ def test_column_ranges(data):
             f"Column {col_name} failed the test. Should be between {minimum} and {maximum}, "
             f"instead min={data[col_name].min()} and max={data[col_name].max()}"
         )
+
+def test_nan(data):
+    """Test there is no nans in the preprocessed data"""
+    assert not data.isna().any().any()

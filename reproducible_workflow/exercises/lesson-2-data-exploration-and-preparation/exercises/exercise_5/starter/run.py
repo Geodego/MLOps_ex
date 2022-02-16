@@ -22,12 +22,16 @@ def go(args):
     # pre-process the file
     logger.info('pre-process the file')
     df = df.drop_duplicates().reset_index(drop=True)
-    df['title'].fillna(value='', inplace=True)
-    df['song_name'].fillna(value='', inplace=True)
+    df['title'].fillna(value=' ', inplace=True)
+    df['song_name'].fillna(value=' ', inplace=True)
     df['text_feature'] = df['title'] + ' ' + df['song_name']
 
     # inspection shows that there are nan in column 'loundness'
     df['loudness'].fillna(df['loudness'].mean(), inplace=True)
+
+    # check there is no nan left
+    assert not df.isna().any().any()
+    logger.info(f'result of check of nans in df: {df.isna().any().any()}')
 
     # save the file and upload it to an artifact
     logger.info('save the file as csv')

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import argparse
 import logging
+import time
+
 import yaml
 
 import pandas as pd
@@ -23,12 +25,29 @@ logger = logging.getLogger()
 
 
 def go(args):
-
     run = wandb.init(job_type="train")
 
     logger.info("Downloading and reading train artifact")
     train_data_path = run.use_artifact(args.train_data).file()
-    df = pd.read_csv(train_data_path, low_memory=False)
+    print(train_data_path)
+    df = pd.DataFrame()
+    i = 0
+
+    # the while loop is there because it seems that when using hydra/launcher it happens that the artifact containing
+    # the training data is not read properly by pd.read_csv. There might be some issues with the way hydra/launcher
+    # handles parallel tasks by using all CPU cores available. The impact is while the same file is read by all the
+    # simultaneous runs, and this file has been previously preprocessed and does not contain null values, some
+    # runs will have a dataframe with null values and an exception will be raised for them. The solution is to keep
+    # reading the file until it is read properly, hence the while loop.
+    while (df.isna().any().any() and i < 100) or df.empty:
+        time.sleep(0.5)
+        df = pd.read_csv(train_data_path, low_memory=False)
+        i += 1
+        if i % 10 == 0:
+            print(f'try reading properly data attempt number: {i}')
+    if df.isna().any().any():
+        logging.warning('failed to retrieve data correctly')
+        raise Exception
 
     # Extract the target from the features
     logger.info("Extracting target from dataframe")
@@ -46,6 +65,7 @@ def go(args):
         model_config = yaml.safe_load(fp)
     # Add it to the W&B configuration so the values for the hyperparams
     # are tracked
+
     wandb.config.update(model_config)
     pipe = get_training_inference_pipeline(args, model_config)
 
