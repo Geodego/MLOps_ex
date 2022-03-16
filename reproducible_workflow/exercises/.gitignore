@@ -46,3 +46,5 @@
 /reproducible_workflow/exercises/lesson-4-training-validation-experiment-tracking/exercises/exercise_13/starter/mlruns/
 /lesson-4-training-validation-experiment-tracking/exercises/exercise_13/starter/mlruns/
 /lesson-4-training-validation-experiment-tracking/exercises/exercise_12/starter/random_forest/wandb/
+/lesson-5-final-pipeline-release-and-deploy/exercises/exercise_16/model/
+/lesson-5-final-pipeline-release-and-deploy/exercises/exercise_16/artifacts/
