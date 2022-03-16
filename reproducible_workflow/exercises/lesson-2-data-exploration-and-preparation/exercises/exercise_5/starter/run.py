@@ -14,7 +14,7 @@ def go(args):
 
     ## YOUR CODE HERE
     # read the file from wandb
-    logger.info('read the file frow wandb')
+    logger.info('read the file from wandb')
     artifact = run.use_artifact(args.input_artifact)
     path_to_file = artifact.file()
     df = pd.read_parquet(path_to_file)
