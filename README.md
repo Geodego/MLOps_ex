@@ -109,6 +109,7 @@ mlflow run . -P input_artifact="exercise_4/genres_mod.parquet:latest" \
              -P artifact_description="Data after preprocessing"
 ```
 #### Exercise 6: Data Segregation
+
 ```bash
 mlflow run . -P input_artifact="exercise_5/preprocessed_data.csv:latest" \
              -P artifact_root="data" \
@@ -196,4 +197,49 @@ Then, you will mark that model as "production ready".
 mlflow run . \
 -P model_export="exercise_12/model_export:latest" \
 -P test_data="exercise_6/data_test.csv:latest"
+````
+
+#### lesson 5: Final pipeline release and deploy
+
+#### Exercise 14: Write an End-to-End Machine Learning Pipeline
+The purpose of the exercise is to build a pipeline for learning the genre of the songs using a random
+forest classifier. The objective is to make the pipeline reproducible. For that purpose a specific repository 
+is set-up and can be accessed  [here](https://github.com/Geodego/genre_classification.git)
+
+#### Exercise 15: Release your pipeline
+In this exercise you will release your final pipeline as a versioned code artifact on GitHub.
+Steps:
+- Go to the repository we created in Exercise 14. 
+- Make a release with version 1.0.0
+- Now anybody can use your pipeline at version 1.0.0 with mlflow and w&b:
+````bash
+mlflow run -v 1.0.0 [URL of your Github repo]
+````
+Note: they need to be logged in to wandb (wandb login)
+
+#### Exercise 16: Deploy with MLflow
+In this exercise we experiment with different ways of deploying an exported model for online and offline inference.
+First we need to fetch the production model. We are going to save it into the model directory:
+````bash
+wandb artifact get genre_classification_prod/model_export:prod --root model
+````
+Offline (batch) inference:
+Let's run inference on the test set.
+
+Use the W&B CLI to download the genre_classification_prod/data_test.csv:latest artifact locally
+````bash
+wandb artifact get genre_classification_prod/data_test.csv:latest
+````
+Now we can run the model on that file:
+````bash
+mlflow models predict \
+                -t csv \
+                -i ./artifacts/data_test.csv:v0/data_test.csv \
+                -m model
+````
+
+Online inference:
+We first need to start the REST API for our model:
+````bash
+mlflow models serve -m model &
 ````
