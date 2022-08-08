@@ -1,1 +1,20 @@
 
+/reproducible_workflow/.idea/.gitignore
+/scalable_pipeline/.idea/.gitignore
+/scalable_pipeline/.ipynb_checkpoints/aequitas_demo-checkpoint.ipynb
+/scalable_pipeline/data/car.csv
+/scalable_pipeline/.ipynb_checkpoints/car_aequitas-checkpoint.ipynb
+/scalable_pipeline/data/iris.csv
+/reproducible_workflow/.idea/misc.xml
+/scalable_pipeline/.idea/misc.xml
+/reproducible_workflow/.idea/modules.xml
+/scalable_pipeline/.idea/modules.xml
+/reproducible_workflow/exercises/lesson-5-final-pipeline-release-and-deploy/exercises/exercise_16/.ipynb_checkpoints/online_inference-checkpoint.ipynb
+/reproducible_workflow/.idea/inspectionProfiles/profiles_settings.xml
+/scalable_pipeline/.idea/inspectionProfiles/profiles_settings.xml
+/reproducible_workflow/.idea/inspectionProfiles/Project_Default.xml
+/scalable_pipeline/.idea/inspectionProfiles/Project_Default.xml
+/reproducible_workflow/.idea/reproducible_workflow.iml
+/scalable_pipeline/.idea/scalable_pipeline.iml
+/reproducible_workflow/.idea/vcs.xml
+/scalable_pipeline/.idea/vcs.xml
