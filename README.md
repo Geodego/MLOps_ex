@@ -1,4 +1,4 @@
-[![Python 3.6](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 # MLOps exercises
 
 - Exercises of ML DevOps Engineer Nanodegree Udacity
@@ -243,3 +243,114 @@ We first need to start the REST API for our model:
 ````bash
 mlflow models serve -m model &
 ````
+We open Jupyter in another terminal, and in a notebook use the ``requests`` library
+   to interrogate the API and do inference on the provided ``data_sample.json``:
+   ```python
+   import requests
+   import json
+   
+   with open("data_sample.json") as fp:
+       data = json.load(fp)
+   
+   results = requests.post("http://localhost:5000/invocations", json=data)
+   
+   print(results.json())
+   ```
+
+Bonus: docker deployment
+You can also use docker to build an image and then deploy to a Cloud provider 
+(AWS, GCP, Azure...). Expose port 5000 of that machine to the world, and you will be able to
+use your model from whenever as a simple API call.
+
+1. Create the docker image:
+   ```bash
+   mlflow models build-docker -m model -n "genre_classification"
+   ```
+   This will take a few minutes (of course, you need docker installed)
+
+2. Follow the procedure for your Cloud provider of choice to deploy a Docker image
+
+3. Open port 5000 on the machine hosting the image
+
+4. Use requests to interrogate that machine, by using the snippet we used earlier and substituting
+   ``http://localhost:5000/invocations`` with ``[url to the deployed machine]:5000/invocations``
+
+### Scalable pipeline
+
+#### Exercise: write a model card
+
+#### Exercise: Aequitas
+In this exercise, you will use Aequitas to investigate the potential bias in a model/data set.
+
+- We'll use the Car Evaluation Data Set from the UCI Machine Learning Repository, a notebook that trains a logistic 
+regression model to determine the car's acceptability is provided.
+- Using Aequitas, determine if the model contains bias. For simplicity, from Aequitas' Fairness class obtain the results 
+of the get_overall_fairness method which returns a dictionary with Yes/No result for "Unsupervised Fairness", 
+"Supervised Fairness" and "Overall Fairness".
+- Lastly, use the aequitas.plotting.Plot module and compute the summary on fpr, fnr, and for with a 1.25 
+fairness_threshold.
+- You can draw inspiration from examples present here: https://github.com/dssg/aequitas/blob/master/docs/source/examples/compas_demo.ipynb
+
+### Monitoring
+
+#### Exercise1: API configuration
+As a data scientist or ML engineer, you should have mastery over your own code, and a clear sense of the accuracy of 
+your models. However, you may work with colleagues and stakeholders who aren't as familiar with your models as you are. 
+Building ML monitoring and reporting API's can enable a broader audience to access crucial information about your 
+deployed models.
+
+In this exercise, you'll accomplish the basics of API configuration. This will prepare you to create a full-scale API 
+that can provide monitoring and reporting about your data and models to a broad audience.
+
+#### Exercise2: Endpoint Scripting
+Configuring an API is only the first step to having a useful API. After configuration, you need to write scripts for 
+endpoints that can provide useful information to you and other users of the API.
+
+In this exercise, you'll write scripts for API endpoints so they can provide useful information about data.
+
+- Instructions: Function for Reading Data  
+The first thing you need to add to your app2.py script is a function for reading data.
+You can call your function readpandas(). It should take a filename string as its input. It should use a pandas method 
+to read a CSV whose filename is given by the function input. It should return the DataFrame that it read.
+
+- Instructions: Size Endpoint  
+Next, you can write a "size" endpoint that enables users to check the size of a dataset.
+Your "size" endpoint needs to start with a line that specifies the app route (the route should be called '/size').
+Your endpoint needs a function, that you can call size(). This function should read a query string from the API user 
+called "filename". Then, your function should call the readpandas() function you created previously, passing the 
+filename as the argument to this function. This will enable you to get the Dataframe specified by the filename.
+Finally, you need to add a return statement to your size() function.
+
+- Instructions - Summary Endpoint
+Next, you can write a "summary" endpoint that enables users to check the summary statistics - in this case the mean of 
+each column of a dataset. Your "summary" endpoint needs to start with a line that specifies the app route 
+(the route should be called '/summary'). Your endpoint needs a function, that you can call summary(). This function 
+should read a query string from the API user called "filename". Then, your function should call the readpandas() 
+function you created previously, passing the filename as the argument to this function. This will enable you to get the 
+Dataframe specified by the filename. You need to add a return statement to your summary() function. It should return 
+the mean of the column of the pandas DataFrame the function read. Finally, you should test your summary() function. 
+There's a dataset in the /L5 directory of your workspace called testdata.csv. You can pass the name 'testdata.csv' to 
+your summary() function, and check the column means of the file. . You can also test your size() function by passing 
+the testdata.csv filename to it, and checking that it's working correctly, and returning the correct size.
+- Check API:
+   ```bash
+   curl 'http://192.168.1.17:8000/size?filename=testdata.csv'
+   ```
+  and
+   ```bash
+   curl 'http://192.168.1.17:8000/summary?filename=testdata.csv'
+   ```
+
+#### Exercise3: Calling API Endpoints
+The API's you've set up in the previous exercises are capable of returning data about ML models to whoever calls them. 
+However, every API is different and calling API's correctly is not always easy. Writing scripts that correctly call 
+API's is especially important since many of your API users may be non-technical people who have never called an API in 
+their lives. Writing scripts that correctly and efficiently call API's and monitor their outputs can help you and 
+others keep your ML models and projects up-to-date and effective.
+
+In this exercise, you'll write a script that will call API endpoints in two different ways:
+
+- by accessing the command line of your workspace
+- by using the Python module called requests
+
+It will be useful to understand two different ways to call API endpoints, because in some cases, one or the other method may be impossible. For example, you might have to work in an environment in which the requests module is not available. Or, you might have to work in an environment in which the command line has restrictions on it. In either case, you'll be unable to use one of the methods for calling API's, and it will be useful to know the other one.
